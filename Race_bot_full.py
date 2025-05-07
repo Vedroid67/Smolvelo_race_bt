@@ -4,7 +4,8 @@ import time
 from datetime import timedelta
 
 from aiogram import Bot, Dispatcher, F, types
-from aiogram.client.bot import DefaultBotProperties
+from aiogram.enums import ParseMode
+
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
@@ -152,7 +153,7 @@ async def main():
             i: {"name": f"Участник {i}", "laps": [], "last_lap_time": None} for i in range(1, 41)
         }
 
-    bot = Bot(token=API_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    bot = Bot(token, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
 
     asyncio.create_task(google_sheet_updater())
