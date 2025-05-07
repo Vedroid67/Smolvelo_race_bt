@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: race-bot
+    env: python
+    plan: free
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python start.py"
+    autoDeploy: false
